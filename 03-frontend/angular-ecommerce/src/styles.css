@@ -708,6 +708,14 @@ table.table.table-bordered th{
     margin-left:5px
 }
 
+.detail-section{
+    margin-top: 60px;
+}
+
+.detail-img{
+    width: 30%;
+}
+
 /* 
  * ----------------------------
  * Product Details
