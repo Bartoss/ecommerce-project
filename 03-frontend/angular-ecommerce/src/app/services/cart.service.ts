@@ -11,6 +11,7 @@ export class CartService {
 
   totalPrice: Subject<number> = new Subject<number>();
   totalQuantity: Subject<number> = new Subject<number>();
+  totalDiscount: Subject<number> = new Subject<number>();
 
   constructor() { }
 
@@ -55,6 +56,11 @@ export class CartService {
     for (let currentCartItem of this.cartItems) {
       totalPriceValue += currentCartItem.quantity * currentCartItem.unitPrice;
       totalQuantityValue += currentCartItem.quantity;
+    }
+
+    //discount if 10 items
+    if(totalQuantityValue >= 10){
+      totalPriceValue = totalPriceValue - ((10 * totalPriceValue)/100)
     }
 
     // publish the new values ... all subscribers will receive the new data

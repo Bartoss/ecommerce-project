@@ -12,6 +12,7 @@ export class CartDetailsComponent implements OnInit {
   cartItems: CartItem[] = [];
   totalPrice: number = 0;
   totalQuantity: number = 0;
+  totalDiscount: String = "10%";
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
@@ -47,6 +48,15 @@ export class CartDetailsComponent implements OnInit {
 
   remove(theCartItem: CartItem){
     this.cartService.remove(theCartItem);
+  }
+
+  showDiscount(){
+    if(this.totalQuantity >= 10){
+      return this.totalDiscount = "You get 10%";
+    }else{
+      let temp = 10-this.totalQuantity;
+      return this.totalDiscount = "Get " + temp + " to get discount";
+    }
   }
  
 }
