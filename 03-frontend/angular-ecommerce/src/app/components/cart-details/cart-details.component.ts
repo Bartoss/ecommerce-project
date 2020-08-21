@@ -52,10 +52,10 @@ export class CartDetailsComponent implements OnInit {
 
   showDiscount(){
     if(this.totalQuantity >= 10){
-      return this.totalDiscount = "You get 10%";
+      return this.totalDiscount = "You get extra 10% discount";
     }else{
       let temp = 10-this.totalQuantity;
-      return this.totalDiscount = "Get " + temp + " to get discount";
+      return this.totalDiscount = "Get " + temp + " more to discount";
     }
   }
  
